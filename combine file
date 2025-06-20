@@ -1,0 +1,60 @@
+# import pandas as pd
+# import csv
+# # a = pd.read_csv("address_sales.csv")
+# # b = pd.read_csv("address_sales_par1.csv")
+# # print(a.tail(5))
+# # print(b.tail(5))
+# # a = csv.reader(open("address_sales.csv"))
+# #
+# # b = csv.reader(open("address_sales_par1.csv"))
+# 
+# 
+# # b = b.dropna(axis=1)
+# # merged = a.merge(b)
+# # merged.to_csv("output_full_sales.csv", index=False)
+# 
+# 
+# 
+# # f = open("output_full_sales.csv", "w+")
+# # writer = csv.writer(f)
+# # for row in a:
+# #     writer.writerow(row)
+# # for row in b:
+# #     writer.writerow(row)
+# # f.close()
+# # print('done')
+# 
+# # with open('output_full_sales.csv') as input, open('output_full_sales_new_try.csv', 'w', newline='') as output:
+#     # writer = csv.writer(output)
+#     # for row in csv.reader(input):
+#     #     for field in row:
+#     #         if field.strip():
+#     #             field.strip('[]')
+#     #             print(field)
+#     #             writer.writerow(row)
+#     # input.close()
+#     # output.close()
+# 
+# 
+# 
+# # ##making the address and ID clean
+# # b = pd.read_csv("output_full_sales_new -tiral.csv")
+# # data = pd.DataFrame(b)
+# # data['Address1'] = data['Address1'].map(lambda x: x.lstrip("[' ").rstrip(" ']"))
+# # data['Property_ID'] = data['Property_ID'].map(lambda x: x.lstrip("[' ").rstrip(" ']"))
+# # print(data[1:5])
+# # data.to_csv('output_full_sales_final.csv', index=False)
+# 
+# 
+# 
+# #
+# assess = pd.DataFrame(pd.read_csv('address_full_info_all_unique.csv', error_bad_lines = False)).drop_duplicates(subset=None, keep='first', inplace=False)
+# sales = pd.DataFrame(pd.read_csv('output_full_sales_final.csv', error_bad_lines = False)).drop_duplicates(subset=None, keep='first', inplace=False)
+# 
+# # s = assess.Series(['Address1'])
+# assess1 = assess[assess['Use'].str.startswith(' RESIDENTIAL')]
+# print(len(assess1))
+# result = pd.merge(assess1, sales, how='left', on=['Address1','Property_ID']) #, validate="one_to_one"
+# # print(assess1[1:5])
+# result.to_csv('output_full.csv', index=False)
+# # print(sales[1:5])
